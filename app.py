@@ -5,10 +5,10 @@ import plotly.express as px
 df = pd.read_csv('vehicles_us.csv')
 
 st.header('market of Cars.Original data')
-st.write(Use the filters below to view advertisements by manufacturer.)
+st.write("Use the filters below to view advertisements by manufacturer")
 
 
-df = df.drop(df.columns[0], axis=1)
+
 model_option = df['model'].unique()
 
 selected_model = st.selectbox('Select a model', model_option )
@@ -40,8 +40,8 @@ list_for_hist = ['transmission', 'cylinders', 'type']
 
 specified_type = st.selectbox('Analysis of price distribution', list_for_hist)
 
-fig1 = px.histogram(df, x="price",color = selected_type )
-fig1.update_layout(title= "<b> Split of price by {}</b>".format(selected_type))
+fig1 = px.histogram(df, x="price",color = specified_type )
+fig1.update_layout(title= "<b> Split of price by {}</b>".format(specified_type))
 st.plotly_chart(fig1)
 
 
@@ -63,5 +63,3 @@ option_for_scatterplot = st.selectbox('Price determination based on', list_for_s
 fig2 = px.scatter(df, x="price", y=option_for_scatterplot, color = "age_category", hover_data= ['model_year'])
 fig2.update_layout(title="<b> Price vs {}</b>".format(option_for_scatterplot))
 st.plotly_chart(fig2)
-
-
