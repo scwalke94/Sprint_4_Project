@@ -5,7 +5,7 @@ import plotly.express as px
 df = pd.read_csv('vehicles_us.csv')
 
 st.header('market of Cars.Original data')
-st.write("Use the filters below to view advertisements by manufacturer")
+st.write("Use the filters below to view advertisements by model")
 
 
 
@@ -17,10 +17,8 @@ min_year, max_year = int(df['model_year'].min()), int(df['model_year'].max())
 
 
 time_period = st.slider("Select the year", value=(min_year, max_year), min_value=min_year,max_value=max_year)
-time_period[0]
-time_period[1]
 
-range(time_period[0], time_period[1])
+
 actual_range = list(range(time_period[0], time_period[1]+1))
 
 
